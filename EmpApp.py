@@ -34,22 +34,6 @@ def about():
 def getEmp():
     return render_template('GetEmp.html')
 
-@app.route("/fetchdata", methods=['POST'])
-def getEmp():
-    emp_id = request.form['emp_id']
-
-    cursor = db_conn.cursor()
-    read_sql = "SELECT * FROM employee WHERE emp_id = %s"
-    cursor.execute(read_sql, (emp_id))
-    result = cursor.fetchall()
-	
-    for row in result:
-        first_name = row["first_name"]
-	last_name = row["last_name"]
-   	location = row["location"]
-
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=0, location=location)
-
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
