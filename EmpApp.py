@@ -42,13 +42,8 @@ def getEmp():
     read_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor.execute(read_sql, (emp_id))
     result = cursor.fetchall()
-	
-	for row in result:
-		first_name = row["first_name"]
-		last_name = row["last_name"]
-		location = row["location"]
-	
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=0, location=location)    
+		
+    return render_template('GetEmpOutput.html', id=result[emp_id], fname=result[first_name], lname=result[last_name], interest=0, location=result[location])    
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
