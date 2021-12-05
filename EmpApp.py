@@ -46,7 +46,7 @@ def getEmpInfo():
     cursor.execute(read_sql, (emp_id))
     results = cursor.fetchall()
 
-    for index, row in results:
+    for row in results:
 	    first_name = row[1]
 	    last_name = row[2]
 	    location = row[4]
