@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from pymysql import connections
 import os
 import boto3
-import pymysql
 from config import *
 
 app = Flask(__name__)
@@ -42,15 +41,15 @@ def getEmpInfo():
     last_name = ""
     location = ""
 
-    cursor = db_conn.cursor(MySQLdb.cursors.DictCursor)
+    cursor = db_conn.cursor()
     read_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor.execute(read_sql, (emp_id))
     results = cursor.fetchall()
 
     for index, row in results:
-	    first_name = row[first_name]
-	    last_name = row[last_name]
-	    location = row[location]
+	    first_name = row[1]
+	    last_name = row[2]
+	    location = row[4]
 		
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=0, location=location)    
 
