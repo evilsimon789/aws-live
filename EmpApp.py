@@ -41,7 +41,7 @@ def getEmpInfo():
     last_name = ""
     location = ""
 
-    cursor = db_conn.cursor()
+    cursor = db_conn.cursor(MySQLdb.cursors.DictCursor)
     read_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor.execute(read_sql, (emp_id))
     results = cursor.fetchall()
