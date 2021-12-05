@@ -44,9 +44,9 @@ def getEmpInfo():
     results = cursor.fetchall()
 
     for row in results:
-	first_name = row[first_name]
-	last_name = row[last_name]
-	location = row[location]
+	    first_name = row[first_name]
+	    last_name = row[last_name]
+	    location = row[location]
 		
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=0, location=location)    
 
