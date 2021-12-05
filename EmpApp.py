@@ -43,10 +43,15 @@ def getEmp():
     cursor.execute(read_sql, (emp_id))
     result = cursor.fetchall()
 	
-   	for row in result:
+	for row in result:
 		first_name = row["first_name"]
 		last_name = row["last_name"]
-   		location = row["location"]
+		location = row["location"]
+	
+   	#for row in result:
+		#first_name = row["first_name"]
+		#last_name = row["last_name"]
+   	#	location = row["location"]
 
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=0, location=location)    
 
