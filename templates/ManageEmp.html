@@ -17,8 +17,41 @@
    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.tablesorter.widgets.js') }}" defer></script>
    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.tablesorter.pager.js') }}" defer></script>
   
-    <style>
-    </style>
+   <style>
+    /* remove edit-delete column seach input & sort btn */
+    #edit-delete-head{
+      background-image: url('#') !important;
+      cursor: default !important;
+    }
+    [role~=search]>td:last-child>input{
+      display: none;
+    }
+    /* style for edit & delete buttons */
+    tbody>tr>td:last-child{
+      width: 7%;
+    }
+    tbody>tr>td:last-child a{
+      display: inline;
+      float: left;
+      text-decoration: none;
+      margin: 0px;
+    }
+    tbody>tr>td:last-child a:last-child{
+      margin:0px 7px 0px 8px;
+      float: right;
+    }
+    tbody>tr>td:last-child>a img{
+      max-width: 20px;
+      max-height: 20px;
+    }
+    tbody>tr>td:last-child>input{
+      max-width: 20px;
+      max-height: 20px;
+    } 
+    #profile-icon{
+      margin-right: 14px;
+    }
+  </style>
 
    <script type="text/javascript">
       //Disable the default MouseOver functionality of ASP.Net Menu control.
@@ -145,9 +178,9 @@
     <td id="address">Taman Hiburan 88100 kota kinabalu</td>
     <td id="date_join">07/12/2021</td>
     <td>
-    <a id="profile-icon" class="edit-btn" href="member_profile.php?student_id='.$row['student_id'].'"><img src="images/profile-icon.png" alt="edit button" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Member Profile"></a>
-    <a class="edit-btn" href="edit_member.php?edit=true&student_id='.$row['student_id'].'"><img src="images/edit-btn.png" alt="edit button" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Edit Member\'s Information"></a>
-    <input type="image" src="images/delete-btn.png" class="delete-btn" alt="delete" name="delete" value="'.$row['student_id'].'" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Delete Member">
+    <a id="profile-icon" class="edit-btn" href="member_profile.php?student_id='.$row['student_id'].'"><img src="{{ url_for('static',filename='images/profile-icon.png') }}" alt="edit button" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Member Profile"></a>
+    <a class="edit-btn" href="edit_member.php?edit=true&student_id='.$row['student_id'].'"><img src="{{ url_for('static',filename='images/edit-btn.png') }}" alt="edit button" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Edit Member\'s Information"></a>
+    <input type="image" src="{{ url_for('static',filename='images/delete-btn.png') }}" class="delete-btn" alt="delete" name="delete" value="'.$row['student_id'].'" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Delete Member">
     </td>
       </tr>
 </tbody>
