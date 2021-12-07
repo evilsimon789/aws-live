@@ -80,7 +80,76 @@
         </div>  
         <div class="custom-container" id="member-table">
           <!-- member table will be displayed here -->
-          
+          <table class="table table-striped">
+            <thead class="thead-light"> <!-- add class="thead-light" for a light header -->
+              <tr>
+                <th>Employee ID</th>
+                <th>Position</th>
+                <th>Name</th>
+                <th class="filter-select filter-exact" data-placeholder="Pick gender">Gender</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Date Joined</th>
+                <th id="edit-delete-head"></th>
+              </tr>
+            </thead>
+       
+            <tfoot>
+              <tr>
+                <th>Student ID</th>
+                <th>Position</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Date Joined</th>
+                <th></th>
+              </tr>
+              <tr>
+                <th colspan="9" class="ts-pager">
+                  <div class="form-inline">
+                    <div class="btn-group btn-group-sm mx-1" role="group">
+                      <button type="button" class="btn btn-secondary first" title="first">⇤</button>
+                      <button type="button" class="btn btn-secondary prev" title="previous">←</button>
+                    </div>
+                    <span class="pagedisplay"></span>
+                    <div class="btn-group btn-group-sm mx-1" role="group">
+                      <button type="button" class="btn btn-secondary next" title="next">→</button>
+                      <button type="button" class="btn btn-secondary last" title="last">⇥</button>
+                    </div>
+                    <select class="form-control-sm custom-select px-1 pagesize" title="Select page size">
+                      <option selected="selected" value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="30">30</option>
+                      <option value="all">All Rows</option>
+                    </select>
+                    <select class="form-control-sm custom-select px-4 mx-1 pagenum" title="Select page number"></select>
+                  </div>
+                </th>
+              </tr>
+            </tfoot>
+
+      <tbody>
+        <tr>;
+    <td id="emp_id">1</td>
+    <td id="position">Sales</td>
+    <td id="name">Joshua Yun</td>
+    <td id="gender">Male</td>
+    <td id="email">abc123@hotmail.com</td>
+    <td id="mobile_num">019-1234545</td>
+    <td id="address">Taman Hiburan 88100 kota kinabalu</td>
+    <td id="date_join">07/12/2021</td>
+    <td>
+    <a id="profile-icon" class="edit-btn" href="member_profile.php?student_id='.$row['student_id'].'"><img src="images/profile-icon.png" alt="edit button" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Member Profile"></a>
+    <a class="edit-btn" href="edit_member.php?edit=true&student_id='.$row['student_id'].'"><img src="images/edit-btn.png" alt="edit button" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Edit Member\'s Information"></a>
+    <input type="image" src="images/delete-btn.png" class="delete-btn" alt="delete" name="delete" value="'.$row['student_id'].'" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Delete Member">
+    </td>
+      </tr>
+</tbody>
+</table>
+
         </div>
        
       </div>
