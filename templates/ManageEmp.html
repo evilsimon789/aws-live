@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <title></title>
+
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" type="text/css" href="css/global.css">
+   <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+   <script type="text/javascript" src="js/bootstrap.js" defer></script>
+   <script type="text/javascript" src="js/jquery.tablesorter.js" defer></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.widgets.js" defer></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.pager.js" defer></script>
+  <script type="text/javascript" src="js/table_script.js" defer></script>
+  
+    <style>
+    </style>
+
+   <script type="text/javascript">
+      //Disable the default MouseOver functionality of ASP.Net Menu control.
+      //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+      //    return false;
+      //};
+      $(document).ready(function () {
+
+         //    //Remove the style attributes.
+         //    $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
+
+         //Apply the Bootstrap class to the Submenu.
+         $(".dropdown-menu").parent().removeClass().addClass('dropdown');
+
+         //Apply the Bootstrap properties to the Submenu.
+         $(".dropdown>a").removeClass().addClass('dropdown-toggle').append('<b class="caret"></b>').attr('data-toggle', 'dropdown');
+
+         //    //Apply the Bootstrap "active" class to the selected Menu item.
+         //    $("a.selected").closest("li").addClass("active");
+         //    $("a.selected").closest(".dropdown-toggle").addClass("active");
+
+         //    remove default click redirect effect           
+         $('dropdown-toggle').attr('onclick', '').off('click');
+      });
+   </script>
+</head>
+<body>
+   <form id="form1" runat="server">
+
+      <nav class="navbar sticky-top navbar-expand-md navbar-light bg-faded">
+         <div class="container-fluid">
+
+            <!-- Brand -->
+            <asp:HyperLink ID="brandLink" runat="server" class="navbar-brand" NavigateUrl="~/art_gallery.aspx">
+               <asp:Image ID="logo" runat="server" src="image/palette.svg" alt="" class="mr-2" Width="50" ClientIDMode="Static" />
+               GALERI
+            </asp:HyperLink>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" runat="server" clientidmode="Static">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+               <ul class="nav navbar-nav mx-auto">
+            
+                <!-- menu -->
+
+               </ul>
+
+              
+            </div>
+         </div>
+      </nav>
+
+
+      <div class="container body-content">
+         <hr />
+
+         <div class="bootstrap_buttons">
+          <button class="reset btn btn-primary shadow" id="submit-button" type="button" data-column="0" data-filter="">Reset search filters</button><br>  
+        </div>  
+        <div class="custom-container" id="member-table">
+          <!-- member table will be displayed here -->
+          
+        </div>
+       
+      </div>
+   </form>
+</body>
+</html>
